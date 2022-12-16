@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>test</title>
+	<!--Стиль из редактора кода-->
+	<style type="text/css" media="screen">#editor{margin:0;width: 98vw;height: 300px;}</style>
+</head>
+<body>
+	<p id="output" style="white-space:pre;">test</p>
+	<input id="map_id">
+	<button id="get_map">get map!</button>
+	<div>---------------------</div>
+	<input id="refresh_interval">
+	<button id="refresh_button">refresh auto</button>
+	<div>---------------------</div>
+	<input id="ship_id">
+	<button id="get_code_button">get code</button>
+	<button id="send_code_button">send code</button>
+	<!--А вот тут у нас загорает редактор кода-->
+	<div id="editor">
+# This program adds two numbers
+
+num1 = 1.5
+num2 = 6.3
+
+# Add two numbers
+sum = num1 + num2
+
+# Display the sum
+print('The sum of {0} and {1} is {2}'.format(num1, num2, sum))
+	</div>
+</body>
+
+<script src="game.js"></script>
+
+<!--Опять элемент редактора-->
+<script src="ace/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    editor.session.setMode("ace/mode/python");
+    editor.resize();
+</script>
+</html>

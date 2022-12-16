@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+  --font-color: rgb(204, 206, 211);
+  --background-color: rgb(32, 37, 49);
+  --window-color: rgb(38,44,59);
+  --border-color: rgb(51,59,79);
+}
+
+
+body {
+
+	font-family: 'Roboto', sans-serif;
+	font-size: 30px;
+	background-color: var(--background-color) !important;
+	color: var(--font-color) !important;
+	padding-top: 1vh;
+}
+
+#dynamic-background {
+	z-index: -100;
+	position: fixed;
+	background-image: url("ships_bck2.png");
+	width: 200vw;
+	height: 200vh;
+}
+
+#top-buttons {
+	position: fixed;
+	width: 99vw;
+
+}
+
+#bottom-buttons {
+	position: fixed;
+	top: 93vh;
+}
+
+.toolbar-button {
+	background-color: var(--background-color);
+	color: var(--font-color) !important;
+}
+
+.cheaps-logo {
+	font-size: 64px;
+}
+
+.description {
+	font-size: 24px;
+	margin-top: 100px;
+}
+
+.info-container {
+	background-color: var(--window-color) !important;
+	padding: 10px !important;
+	border-width: 5px !important;
+	border: solid !important;
+	border-color: var(--border-color) !important;
+	margin-top: 100px;
+}
+
+.play-container {
+	
+}
+
+.world-container {
+	text-align: right;
+}
+
+.mark-card {
+	margin: 10px;
+	background-color: var(--border-color) !important;
+}
+
+a {
+	color: var(--font-color) !important;
+}
