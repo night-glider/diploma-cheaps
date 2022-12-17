@@ -12,6 +12,10 @@ def get_map():
 	room_id = int( request.args.get('id') )
 	return jsonify(world.get_room_map(room_id))
 
+@app.get("/tick_data")
+def get_tick_data():
+	return jsonify(world.get_tick_data())
+
 @app.get("/ship_code")
 def get_ship_code():
 	ship_id = ( request.args.get("id") )

@@ -6,6 +6,12 @@ import ship_manager
 
 rooms = []
 
+avg_tick_time = 0.0
+min_tick_time = 999999.0
+max_tick_time = 0.0
+total_tick_time = 0.0
+ticks_elapsed = 0
+
 def clamp(val, minn, maxx):
 	return max(minn, min(val, maxx) )
 
@@ -64,6 +70,8 @@ def cycle():
 	print("cycle started")
 	n = 0.1
 	while True:
+		start_time = time.time()
+
 		for room in rooms:
 			for ship in room["ships"]:
 				ship["x"] = move_to_val(ship["x"], 1000 + math.sin(n)*500, 200)
@@ -72,8 +80,36 @@ def cycle():
 		n+=0.1
 
 		ship_manager.cycle_ships()
+
+
+		end_time = time.time()
+		elapsed_time = (end_time - start_time) * 1000.0
+		calc_tick_data(elapsed_time)
+
 		print("cycle passed")
+		print(get_tick_data())
 		time.sleep(1)
+
+def calc_tick_data(elapsed_time):
+	global avg_tick_time
+	global min_tick_time
+	global max_tick_time
+	global total_tick_time
+	global ticks_elapsed
+
+	ticks_elapsed+=1
+	total_tick_time += elapsed_time
+	avg_tick_time = total_tick_time / ticks_elapsed
+	min_tick_time = min(min_tick_time, elapsed_time)
+	max_tick_time = max(max_tick_time, elapsed_time)
+
+def get_tick_data():
+	return {
+		"avg_tick_time": avg_tick_time,
+		"min_tick_time": min_tick_time,
+		"max_tick_time": max_tick_time,
+		"ticks_elapsed": ticks_elapsed,
+	}
 
 
 for i in range(20):
